@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="description" content="Floating Cursor PWA">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Floating Cursor</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <header>
+      <div>
+        <h1>Floating Cursor</h1>
+        <p>Aplikasi kontrol offline</p>
+      </div>
+      <button class="icon-btn" id="settingsBtn">⚙️</button>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="status">
+          <span class="status-dot"></span>
+          <span>Mode offline aktif</span>
+        </div>
+
+        <h2>Kontrol Cepat</h2>
+        <p>
+          Tekan tombol bulat untuk membuka menu kontrol.
+        </p>
+      </section>
+
+      <section class="card settings-panel" id="settingsPanel">
+        <h2>Pengaturan</h2>
+
+        <label>
+          Ukuran Kursor
+          <input id="cursorSize" type="range" min="20" max="100" value="45">
+          <span id="sizeValue">45 px</span>
+        </label>
+
+        <label>
+          Warna Kursor
+          <input id="cursorColor" type="color" value="#00d9ff">
+        </label>
+
+        <label class="switch-row">
+          <span>Efek bayangan</span>
+          <input id="cursorShadow" type="checkbox" checked>
+        </label>
+
+        <label class="switch-row">
+          <span>Getaran tombol</span>
+          <input id="vibration" type="checkbox" checked>
+        </label>
+
+        <button class="reset-btn" id="resetBtn">
+          Reset Pengaturan
+        </button>
+      </section>
+    </main>
+
+    <!-- Cursor -->
+    <div id="cursor" class="cursor"></div>
+
+    <!-- Floating button -->
+    <button id="floatingButton" class="floating-button">
+      ☰
+    </button>
+
+    <!-- Floating menu -->
+    <div id="floatingMenu" class="floating-menu">
+
+      <button class="menu-item cursor-menu" data-action="cursor">
+        <span>🖱️</span>
+        <small>Kursor</small>
+      </button>
+
+      <button class="menu-item" data-action="home">
+        <span>🏠</span>
+        <small>Home</small>
+      </button>
+
+      <button class="menu-item" data-action="settings">
+        <span>⚙️</span>
+        <small>Setting</small>
+      </button>
+
+      <button class="menu-item" data-action="info">
+        <span>ℹ️</span>
+        <small>Info</small>
+      </button>
+
+    </div>
+
+    <div id="toast"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
